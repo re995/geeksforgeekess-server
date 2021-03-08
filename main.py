@@ -26,19 +26,17 @@ def toHTMLFormat(element):
 
 @app.route("/request-first")
 def first():
-    result = "<div dir='rtl'>\n"
+    result =""
     result += toHTMLFormat(links_list[0])
-    result += "</div>"
     return result
 
 
 @app.route("/request-random")
 def request():
     random_list = random.sample(links_list[1:], 1)
-    result = "<div dir='rtl'>\n"
+    result = ""
     for element in random_list:
         result += toHTMLFormat(element)
-    result += "</div>"
     return result
 
 
