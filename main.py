@@ -34,7 +34,7 @@ def first():
 
 @app.route("/request-random")
 def request():
-    random_list = random.sample(links_list[1:], 3)
+    random_list = random.sample(links_list[1:], 1)
     result = "<div dir='rtl'>\n"
     for element in random_list:
         result += toHTMLFormat(element)
