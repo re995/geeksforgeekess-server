@@ -28,6 +28,7 @@ def toHTMLFormat(element):
 def first():
     result =""
     result += toHTMLFormat(links_list[0])
+    result = "<h2>" + result + "</h2>"
     return result
 
 
@@ -36,7 +37,7 @@ def request():
     random_list = random.sample(links_list[1:], 1)
     result = ""
     for element in random_list:
-        result += toHTMLFormat(element)
+        result += "<h3>" + toHTMLFormat(element) + "</h3>"
     return result
 
 
