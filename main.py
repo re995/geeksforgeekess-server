@@ -11,7 +11,7 @@ def parse_links_file(filename):
         data = f.read()
         lines = data.splitlines()
         for line in lines:
-            fields = line.split(',')
+            fields = line.split('@')
             result.append(fields)
 
     return result
@@ -24,9 +24,17 @@ def toHTMLFormat(element):
     return str1
 
 
-@app.route("/request")
+@app.route("/request-first")
+def first():
+    result = "<div dir='rtl'>\n"
+    result += toHTMLFormat(links_list[0])
+    result += "</div>"
+    return result
+
+
+@app.route("/request-random")
 def request():
-    random_list = random.sample(links_list, 3)
+    random_list = random.sample(links_list[1:], 3)
     result = "<div dir='rtl'>\n"
     for element in random_list:
         result += toHTMLFormat(element)
